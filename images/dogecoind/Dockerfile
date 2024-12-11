@@ -26,7 +26,8 @@ RUN <<-EOF
     libboost-program-options-dev \
     libssl-dev \
     libzmq3-dev \
-    acl
+    acl \
+    libdb++-dev
 EOF
 
 RUN <<-EOF
@@ -76,7 +77,8 @@ RUN <<-EOF
     net-tools \
     curl \
     jq \
-    netcat
+    netcat \
+    libdb5.3++-dev
 EOF
 
 ENTRYPOINT ["dogecoind", "-conf=/opt/dogecoin/.dogecoin/dogecoin.conf", "-datadir=/opt/dogecoin/.dogecoin/db", "-printtoconsole", "-txindex=1"]
