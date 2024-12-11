@@ -47,7 +47,7 @@ WORKDIR /opt/dogecoin
 
 RUN <<-EOF
     bash ./autogen.sh && \
-    bash ./configure --disable-tests --disable-bench --prefix=/opt/dogecoin/build && \
+    bash ./configure --without-gui --disable-tests --disable-bench --prefix=/opt/dogecoin/build && \
     echo $(getconf _NPROCESSORS_ONLN) && \
     make -j $(getconf _NPROCESSORS_ONLN) && \
     make install && \
