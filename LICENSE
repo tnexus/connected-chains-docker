@@ -19,3 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   config/bitcoin/bitcoin.conf
+	modified:   config/dogecoin/dogecoin.conf
+	modified:   config/litecoin/litecoin.conf
+	modified:   images/litecoind/Dockerfile
+	modified:   images/litecoind/build.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	config-local/
+	docker-compose-local.yml

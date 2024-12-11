@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+
+  litecoin:
+    image: flarefoundation/litecoin:0.21.4
+    restart: on-failure:3
+    environment:
+      - TZ=Europe/London
+    ports:
+      - ${BIND_IP}:19332:19332
+      - ${BIND_IP}:19333:19333
+    volumes:
+      - litecoin-local-data:/opt/litecoin/.litecoin/db
+      - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
+
+        #  dogecoin:
+        #    image: flarefoundation/dogecoin:1.14.8
+        #    restart: on-failure:3
+        #    environment:
+        #      - TZ=Europe/London
+        #    ports:
+        #      - ${BIND_IP}:44555:44555
+        #      - ${BIND_IP}:44556:44556
+        #    volumes:
+        #      - dogecoin-testnet-data:/opt/dogecoin/.dogecoin/db
+      #      - ./config-testnet/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
+
+volumes:
+  litecoin-local-data:
+  #  dogecoin-testnet-data:

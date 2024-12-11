@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.3-labs
 FROM ubuntu:22.04 as build
 
-ARG VERSION=v0.21.3
+ARG VERSION=v0.21.4
 
 ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/London"
 
@@ -52,7 +52,7 @@ WORKDIR /opt/litecoin
 
 RUN <<-EOF
     bash ./autogen.sh && \
-    bash ./configure --disable-wallet --without-gui --disable-tests --disable-bench --prefix=/opt/litecoin/build && \
+    bash ./configure --with-incompatible-bdb --disable-tests --disable-bench --prefix=/opt/litecoin/build && \
     echo $(getconf _NPROCESSORS_ONLN) && \
     make -j $(getconf _NPROCESSORS_ONLN) && \
     make install && \
@@ -82,7 +82,8 @@ RUN <<-EOF
     net-tools \
     curl \
     jq \
-    netcat
+    netcat \
+    libdb5.3++-dev
 EOF
 
 RUN ls -la /opt/litecoin
