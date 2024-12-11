@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.3-labs
 FROM ubuntu:22.04 as build
 
-ARG VERSION=v1.14.8
+ARG VERSION=v1.14.9
 
 ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/London"
 
@@ -46,7 +46,7 @@ WORKDIR /opt/dogecoin
 
 RUN <<-EOF
     bash ./autogen.sh && \
-    bash ./configure --disable-wallet --without-gui --disable-tests --disable-bench --prefix=/opt/dogecoin/build && \
+    bash ./configure --disable-tests --disable-bench --prefix=/opt/dogecoin/build && \
     echo $(getconf _NPROCESSORS_ONLN) && \
     make -j $(getconf _NPROCESSORS_ONLN) && \
     make install && \
