@@ -22,6 +22,8 @@ services:
     ports:
       - ${BIND_IP}:44555:44555
       - ${BIND_IP}:44556:44556
+      - ${BIND_IP}:18332:18332
+      - ${BIND_IP}:18333:18333
     volumes:
       - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
