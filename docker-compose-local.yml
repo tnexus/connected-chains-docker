@@ -3,7 +3,7 @@ version: "3"
 services:
 
   litecoin:
-    image: flarefoundation/litecoin:0.21.4
+    image: coinflow/ltc-node:0.21.4
     restart: on-failure:3
     environment:
       - TZ=Europe/London
