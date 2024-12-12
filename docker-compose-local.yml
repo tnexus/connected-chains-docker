@@ -9,8 +9,8 @@ services:
     environment:
       - TZ=Europe/London
     ports:
-      - ${BIND_IP}:19332:19332
-      - ${BIND_IP}:19333:19333
+      - "19332:19332"
+      - "19333:19333"
     volumes:
       - litecoin-local-data:/opt/litecoin/.litecoin/db
       - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
@@ -22,8 +22,8 @@ services:
     environment:
       - TZ=Europe/London
     ports:
-      - ${BIND_IP}:44555:44555
-      - ${BIND_IP}:44556:44556
+      - "44555:44555"
+      - "44556:44556"
     volumes:
       - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
