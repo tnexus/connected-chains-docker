@@ -4,6 +4,7 @@ services:
 
   litecoin:
     image: coinflow/ltc-node:0.21.4
+    container_name: litecoin
     restart: on-failure:3
     environment:
       - TZ=Europe/London
@@ -16,6 +17,7 @@ services:
 
   dogecoin:
     image: coinflow/doge-node:1.14.9
+    container_name: dogecoin
     restart: on-failure:3
     environment:
       - TZ=Europe/London
