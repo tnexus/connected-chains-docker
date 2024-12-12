@@ -15,9 +15,9 @@ services:
       - litecoin-local-data:/opt/litecoin/.litecoin/db
       - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
 
-  dogecoin:
+  dogecoin-node1:
     image: coinflow/doge-node:1.14.9
-    container_name: dogecoin
+    container_name: dogecoin-node1
     restart: on-failure:3
     environment:
       - TZ=Europe/London
@@ -27,7 +27,24 @@ services:
     volumes:
       - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
+    command: >
+      dogecoind -addnode=dogecoin-node2
+  dogecoin-node2:
+    image: coinflow/doge-node:1.14.9
+    container_name: dogecoin-node2
+    restart: on-failure:3
+    environment:
+      - TZ=Europe/London
+    ports:
+      - "44555:44555"
+      - "44556:44556"
+    volumes:
+      - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
+      - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
+    command: >
+      dogecoind -addnode=dogecoin-node1
 
 volumes:
   litecoin-local-data:
-  dogecoin-local-data:
+  dogecoin-local-node1-data:
+  dogecoin-local-node2-data:
