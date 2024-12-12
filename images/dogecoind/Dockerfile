@@ -81,4 +81,7 @@ RUN <<-EOF
     libdb5.3++-dev
 EOF
 
-ENTRYPOINT ["dogecoind", "-conf=/opt/dogecoin/.dogecoin/dogecoin.conf", "-datadir=/opt/dogecoin/.dogecoin/db", "-printtoconsole", "-txindex=1"]
+ENV DOGE_ADDNODE=""
+
+#ENTRYPOINT ["dogecoind", "-conf=/opt/dogecoin/.dogecoin/dogecoin.conf", "-datadir=/opt/dogecoin/.dogecoin/db", "-printtoconsole", "-txindex=1"]
+ENTRYPOINT ["/bin/bash", "-c", "dogecoind -conf=/opt/dogecoin/.dogecoin/dogecoin.conf -datadir=/opt/dogecoin/.dogecoin/db -printtoconsole -txindex=1 ${ADDNODE:+-addnode=$ADDNODE}"]
