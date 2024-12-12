@@ -36,8 +36,8 @@ services:
     environment:
       - TZ=Europe/London
     ports:
-      - "44555:44555"
-      - "44556:44556"
+      - "44557:44557"
+      - "44558:44558"
     volumes:
       - dogecoin-local-node2-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
