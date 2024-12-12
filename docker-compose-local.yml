@@ -25,7 +25,7 @@ services:
       - "44555:44555"
       - "44556:44556"
     volumes:
-      - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
+      - dogecoin-local-node1-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
     command: >
       dogecoind -addnode=dogecoin-node2
@@ -39,7 +39,7 @@ services:
       - "44555:44555"
       - "44556:44556"
     volumes:
-      - dogecoin-local-data:/opt/dogecoin/.dogecoin/db
+      - dogecoin-local-node2-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
     command: >
       dogecoind -addnode=dogecoin-node1
