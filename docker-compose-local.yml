@@ -23,8 +23,8 @@ services:
       - TZ=Europe/London
       - LITE_ADDNODE=litecoin-node1
     ports:
-      - "19334:19334"
-      - "19335:19335"
+      - "19334:19332"
+      - "19335:19333"
     volumes:
       - litecoin-local-node2-data:/opt/litecoin/.litecoin/db
       - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
