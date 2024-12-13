@@ -52,7 +52,7 @@ WORKDIR /opt/litecoin
 
 RUN <<-EOF
     bash ./autogen.sh && \
-    bash ./configure --with-incompatible-bdb --disable-tests --disable-bench --prefix=/opt/litecoin/build && \
+    bash ./configure --with-incompatible-bdb --without-gui --disable-tests --disable-bench --prefix=/opt/litecoin/build && \
     echo $(getconf _NPROCESSORS_ONLN) && \
     make -j $(getconf _NPROCESSORS_ONLN) && \
     make install && \
@@ -88,4 +88,7 @@ EOF
 
 RUN ls -la /opt/litecoin
 
-ENTRYPOINT ["litecoind", "-conf=/opt/litecoin/.litecoin/litecoin.conf", "-datadir=/opt/litecoin/.litecoin/db", "-txindex=1"]
+ENV LITE_ADDNODE=""
+
+#ENTRYPOINT ["litecoind", "-conf=/opt/litecoin/.litecoin/litecoin.conf", "-datadir=/opt/litecoin/.litecoin/db", "-txindex=1"]
+ENTRYPOINT ["/bin/bash", "-c", "litecoind -conf=/opt/litecoin/.litecoin/litecoin.conf -datadir=/opt/litecoin/.litecoin/db -txindex=1 ${LITE_ADDNODE:+-addnode=$LITE_ADDNODE}"]
