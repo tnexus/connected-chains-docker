@@ -12,6 +12,7 @@ services:
     ports:
       - "19332:19332"
       - "19333:19333"
+      - "1222:1222"
     volumes:
       - litecoin-local-node1-data:/opt/litecoin/.litecoin/db
       - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
@@ -25,6 +26,7 @@ services:
     ports:
       - "19334:19332"
       - "19335:19333"
+      - "1223:1222"
     volumes:
       - litecoin-local-node2-data:/opt/litecoin/.litecoin/db
       - ./config-local/litecoin/litecoin.conf:/opt/litecoin/.litecoin/litecoin.conf
@@ -39,6 +41,7 @@ services:
     ports:
       - "44555:44555"
       - "44556:44556"
+      - "1322:1322"
     volumes:
       - dogecoin-local-node1-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
@@ -52,6 +55,7 @@ services:
     ports:
       - "44557:44555"
       - "44558:44556"
+      - "1323:1322"
     volumes:
       - dogecoin-local-node2-data:/opt/dogecoin/.dogecoin/db
       - ./config-local/dogecoin/dogecoin.conf:/opt/dogecoin/.dogecoin/dogecoin.conf
